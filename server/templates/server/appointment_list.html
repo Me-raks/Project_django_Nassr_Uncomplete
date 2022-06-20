@@ -1,0 +1,16 @@
+{% extends 'server/base.html'%}
+{%block content%}
+{% if membre_doctor %}
+<div class='conatiner' style='height:1000px;'>
+   <h1>Appointments</h1>
+   {%  include  'server/Appointment_doctor.html'%}
+</div>
+{%endif%}
+{% if membre_patient %}
+<div class='conatiner' style='height:1000px;'>
+    <a href="{% url 'start_appointment' %}">
+        <p> Start An Appointment </p>
+     </a>
+</div>
+{%endif%}
+{%endblock%}

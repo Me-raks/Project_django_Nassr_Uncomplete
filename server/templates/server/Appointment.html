@@ -1,0 +1,43 @@
+{% extends 'server/base.html'%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{%block content%}
+<div class='conatiner' style='height:500px;'>
+  <form action='.' method='POST'>{% csrf_token %}
+    <div class="container">
+        <h1>Start An Appointment</h1>
+        <div class="row row-cols-2">
+            <div class="col-6">
+                <label for="Prenom">Doctor</label>
+                <select id="doctor" class="form-control border border-warning rounded">
+                  {% for doc in doctor%}
+                  <option value="{{doc.Full_Name}}<">{{doc.Full_Name}}</option>
+                  {%endfor%}
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="Prenom">Service</label>
+                <select id="service" class="form-control border border-warning rounded">
+                  {% for ser in service%}
+                  <option value="{{ser.Name}}">{{ser.Name}}</option>
+                  {%endfor%}
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="Prenom">Date</label>
+                <input class="form-control border border-warning rounded" type="date" name="date" value="<?php echo date('Y-m-d'); ?>">
+            </div>
+            <div class="col-6">
+                <label for="mett">Meeting Link</label>
+                <input class="form-control border border-warning rounded" type="text" name="mett" value="">
+            </div>
+            <div class="col-6">
+                <label for="amount">Amount</label>
+                <input class="form-control border border-warning rounded" type="text" name="amount" value='{{amount}}'>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-outline-info" type="submit" style="margin: 10px 45% ">Create Appointment</button>
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,76 @@
+{% extends 'server/base.html'%}
+{%block content%}
+    {% if membre_doctor %}
+    <div class="container" style='height:1000px;'>
+        <div class="row justify-content-around">
+            <div class="col-5" style="border:1px solid black ;margin:10px;border-radius:10px;display:inline-block">
+                <div id="container" style="display: flex;">
+                    <div id="image" style="float:left; margin-top: 10px">
+                        <img src="https://img.icons8.com/external-others-pike-picture/100/undefined/external-Patient-organ-others-pike-picture-2.png" align="left"/>
+                    </div>
+                    <div id="texts" style="float:left;"> 
+                        <span style="font-size:40px;">Patients</span><br/>
+                        <span style="font-size:20px">{{patient_nombre}}</span>
+                    </div>
+                </div>
+                <div class="clearfix">      
+                </div>
+            </div>
+            <div class="col-5" style="border:1px solid black ;margin:10px;border-radius:10px">
+                <div id="container" style="display: flex;">
+                    <div id="image" style="float:left; margin-top: 10px">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/undefined/external-appointments-inhome-service-flaticons-flat-flat-icons.png"/>
+                    </div>
+                    <div id="texts" style="float:left;"> 
+                        <span style="font-size:40px;">Appointment</span><br/>
+                        <span style="font-size:20px">{{appointment_nombre}}</span>
+                    </div>
+                </div>
+                <div class="clearfix">      
+                </div>
+            </div>
+            <div class="col-5" style="border:1px solid black ;margin:10px;border-radius:10px">
+                <div id="container" style="display: flex;">
+                    <div id="image" style="float:left; margin-top: 10px">
+                        <img src="https://img.icons8.com/color-glass/48/undefined/service.png"/>
+                    </div>
+                    <div id="texts" style="float:left;"> 
+                        <span style="font-size:40px;">Services Offred</span><br/>
+                        <span style="font-size:20px">{{service_nombre}}</span>
+                    </div>
+                </div>
+                <div class="clearfix">      
+                </div>
+            </div>
+            <div class="col-5" style="border:1px solid black ;margin:10px;border-radius: 10px">
+                <div id="container" style="display: flex;">
+                    <div id="image" style="float:left; margin-top: 10px">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/undefined/external-income-lifestyles-flaticons-flat-flat-icons.png"/>
+                    </div>
+                    <div id="texts" style="float:left;"> 
+                        <span style="font-size:40px;">Income</span><br/>
+                        <span style="font-size:20px">{{patient_nombre}}</span>
+                    </div>
+                </div>
+                <div class="clearfix">      
+                </div>
+            </div>
+          </div>
+    </div>
+    {%elif membre_patient %}
+        <div class='conatiner' style='height:auto;'>
+            <div class="header1">
+                <div class="row">
+                    <div class="col-6" style="padding: 30px;">
+                        <h3 class="display-4">The simple, free, and secure telemedicine solution.</h3>
+                        <p class="lead">We have made telemedicine simple and easy for you. Create your personal room and start practicing telemedicine today.
+                        </p>
+                        <hr class="my-4">
+                        <p>Get started.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%endif%}
+    
+{%endblock%}
