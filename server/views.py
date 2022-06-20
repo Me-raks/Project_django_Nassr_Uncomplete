@@ -8,6 +8,26 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.models import model_to_dict
+from .serializers import PatientSerializer,DoctorSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, authentication_classes,permission_classes
+from rest_framework.authentication import TokenAuthentication
+@api_view(['GET', "POST", ])
+@authentication_classes((TokenAuthentication, ))
+def Patient_List(request):
+    if request.method=='GET':
+        patient=Patient.objects.all()
+        serializer=PatientSerializer(patient, many=True)
+        return Response(serializer.data)
+@api_view(['GET', "POST", ])
+@authentication_classes((TokenAuthentication, ))
+def Doctor_List(request):
+    if request.method=='GET':
+        doctor=Doctor.objects.all()
+        serializer=DoctorSerializer(doctor, many=True)
+        return Response(serializer.data)
+
+
 # Create your views here.
 def home(request):
     patients=Patient.objects.all()

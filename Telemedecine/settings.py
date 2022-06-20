@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     'server.apps.ServerConfig',
     'crispy_forms',
     'widget_tweaks',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
 ]
-
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10
+}
+ALLOWED_HOSTS = ["*"]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
